@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+<cm  seq="1">
+	<omcId>OMC7</omcId>
+	<ip>10.221.240.7</ip>
+	<port>8765</port>
+	<vendor>HUAWEI</vendor>
+</cm>
+<cm  seq="2">
+	<omcId>OMC30</omcId>
+	<ip>10.221.240.30</ip>
+	<port>8765</port>
+	<vendor>HUAWEI</vendor>
+</cm>
+<cm  seq="3">
+	<omcId>OMC95</omcId>
+	<ip>10.221.240.95</ip>
+	<port>8765</port>
+	<vendor>HUAWEI</vendor>
+</cm>
+<cm  seq="4">
+	<omcId>OMC111</omcId>
+	<ip>10.221.240.111</ip>
+	<port>8765</port>
+	<vendor>HUAWEI</vendor>
+</cm>
+</config>

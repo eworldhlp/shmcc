@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>     
+  <Configuration status="off" monitorInterval="1800">      
+      <properties>  
+      	  <!-- 定义日志文件根目录 -->
+          <property name="LOG_HOME">/var/log/AlarmCollector/</property>  
+          <!-- 定义日志的通用格式 -->
+        <Property name="genericPattern" value="%d{yyyy-MM-dd HH:mm:ss} %p [%c] %m%n" />
+        <!-- 定义日志分卷文件通用文件名形式 -->
+        <Property name="genericFilePattern" value="%d{yyyy-MM-dd}-%i" />
+      </properties>   
+     <Appenders>  
+     	 <!-- Console Appender -->
+         <Console name="Console" target="SYSTEM_OUT">  
+              <PatternLayout pattern="${genericPattern}" />
+         </Console>  
+         
+   		<!-- File Appender -->
+         <RollingRandomAccessFile name="RollingRandomAccessFileAppender"  
+                                  fileName="${LOG_HOME}/AlarmCollector.log"  
+                                  filePattern="${LOG_HOME}/AlarmCollector.%d{yyyy-MM-dd}.log"
+                                  append="true">   
+             <PatternLayout pattern="${genericPattern}" />
+             <Policies>  
+                 <TimeBasedTriggeringPolicy  interval="1"/>  
+                 <!-- <SizeBasedTriggeringPolicy size="10 MB"/>  --> 
+             </Policies>  
+             <DefaultRolloverStrategy max="20"/>  
+         </RollingRandomAccessFile>     
+     </Appenders>  
+   
+     <Loggers>  
+     	<root level="info" includeLocation="true">  
+             <appender-ref ref="Console"/>  
+             <appender-ref ref="RollingRandomAccessFileAppender" />  
+         </root>  
+         <!-- 3rdparty Loggers -->  
+         <logger name="kafka" level="warn"></logger>   
+         <logger name="org.apache.kafka" level="warn"></logger>     
+         <logger name="net.sf.ezmorph" level="error"></logger>    
+         <logger name="net.sf.json" level="error"></logger>
+     </Loggers>  
+ </Configuration>  
